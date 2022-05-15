@@ -1,0 +1,12 @@
+.mainContener{
+    text-align: center;
+}
+.replenishment{
+    
+    cursor: pointer;
+}
+.replenishment:hover{
+    background-color: lightgray;
+    color: tomato;
+    border: 1px solid black;
+}
