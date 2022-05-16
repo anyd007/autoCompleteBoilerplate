@@ -2,8 +2,8 @@ import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import "./autocomplite.css"
 
-export default function Autocomplite(){
-
+export default function Autocomplite({setValue}){
+  
 const [dataFromAPI, setDataFromAPI] = useState([]) //pobieranie api
 const [inputValue, setInpuntValue] = useState('') //pobieranie danych z inputów
 const [replenishment, setReplenishment] = useState([])
@@ -25,6 +25,7 @@ useEffect(()=>{
     const handlesetReplenishment = (inputValue)=>{
         setInpuntValue(inputValue)
         setReplenishment([])
+        setValue(replenishment.filter(item=>item.name===inputValue)) //przekaznie danych do App po zaznaczeniu podpowiedzi
     }
     //funkcja przyjmująca argument wartość inputa, sprawdzająca czy wartość inputa jest większa niż 0, 
     //oraz filtrująca dane z API
@@ -39,7 +40,9 @@ useEffect(()=>{
         }
         setReplenishment(tests) //przypisywanie danych po filtrowaniu 
         setInpuntValue(inputValue) //przypisywanie danych wprowadzonych w inpucie 
+        setValue(tests) //przekazywanie danych do App po filtrowaniu 
     }
+     
     return(
         <div className="mainContener">
             <div className="titleContener">
