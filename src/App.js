@@ -1,17 +1,20 @@
 import React from 'react';
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import Autocomplite from "./autocomplite/Autocomplite"
+import UserDetals from "./userDetals/UserDetals"
 
 const App = () => {
+  const [value, setValue] = React.useState([])
+  const [showDetals, setShowdetals] = React.useState(false)
+  React.useEffect(()=>{
+    value.length ===1 ? setShowdetals(true) : setShowdetals(false)
+  },[value])
+
   return (
-    <Router>
-    <div className="App"> </div>
-    <div className="content">
-      <Routes>
-        <Route exact path="/" element={<Autocomplite />} />
-      </Routes>
+    <div className="App">
+      <Autocomplite setValue={setValue}/>
+     {showDetals && <UserDetals value={value}/>}
     </div>
-    </Router>
+
   );
 }
 
