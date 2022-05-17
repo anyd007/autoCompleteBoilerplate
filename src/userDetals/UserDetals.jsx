@@ -1,7 +1,8 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 
 const UserDetals = ({value}) =>{
-
+    const history = useNavigate()
 
     return(
         <div className="userDetalsContener">
@@ -39,6 +40,7 @@ const UserDetals = ({value}) =>{
                    </tr>
                </tbody>
            </table>)) : null}
+        <button onClick={()=>history("/")} className="btn" type="button">ZAMKNIJ</button>
         </div>
     )
 }
