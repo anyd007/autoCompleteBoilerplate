@@ -1,21 +1,24 @@
-import React from 'react';
-import Autocomplite from "./autocomplite/Autocomplite"
-import UserDetals from "./userDetals/UserDetals"
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Autocomplite from "./autocomplite/Autocomplite";
+import UserDetals from "./userDetals/UserDetals";
+import { ThemeProvider } from "./bgContext/BgContext";
 
 const App = () => {
-  const [value, setValue] = React.useState([])
-  const [showDetals, setShowdetals] = React.useState(false)
-  React.useEffect(()=>{
-    value.length ===1 ? setShowdetals(true) : setShowdetals(false)
-  },[value])
+  const [value, setValue] = useState([]);
 
   return (
-    <div className="App">
-      <Autocomplite setValue={setValue}/>
-     {showDetals && <UserDetals value={value}/>}
-    </div>
-
+    <Router>
+      <div className="App">
+        <ThemeProvider>
+          <Routes>
+            <Route exact path="/" element={<Autocomplite setValue={setValue} />}/>
+            <Route path="/userDetals" element={<UserDetals value={value} />} />
+          </Routes>
+        </ThemeProvider>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;

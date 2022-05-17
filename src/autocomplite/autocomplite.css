@@ -1,12 +1,24 @@
+html, body {
+    margin:0px;
+    height:100%;
+  }
 .mainContener{
     text-align: center;
+    height:100vh;
+    position: relative;
+}
+.titleContener{
+    margin: 0%;
+    padding: 10%;
 }
 .replenishment{
-    
     cursor: pointer;
 }
 .replenishment:hover{
     background-color: lightgray;
     color: tomato;
     border: 1px solid black;
+}
+.btn{
+    cursor: pointer;
 }
