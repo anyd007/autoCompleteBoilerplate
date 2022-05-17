@@ -9,16 +9,79 @@ html, body {
 }
 .titleContener{
     margin: 0%;
-    padding: 10%;
+    padding: 4%;
+    animation: fadeIn linear 2s;
+}
+.inputContainer{
+    animation: fadeIn linear 2s;
+}
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+h1{
+    font-size: 60px;
+}
+label{
+    font-size: 25px;
+    margin: 5px;
+}
+input{
+    color: #F8D800;
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid red;
+    background: transparent;
+    transition: 0.5s ease all;  
+    width: 50%;
+}
+input:focus{
+    outline: none;
+    border-bottom: 3px solid rgba(103, 23, 159, 1)
 }
 .replenishment{
     cursor: pointer;
 }
 .replenishment:hover{
-    background-color: lightgray;
+    
     color: tomato;
-    border: 1px solid black;
+   
 }
 .btn{
+    color: tomato;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    padding: 5px;
     cursor: pointer;
+    background: transparent;
+    border: 3px solid rgba(103, 23, 159, 1);
+    border-radius: 15px;
+    text-shadow: 4px 0px 19px rgba(103, 23, 159, 1);
+    transition: 0.8s;
+}
+.btn:hover{
+    background:rgba(103, 23, 159, 1);
+    color: #ffd700;
+}
+button:hover:disabled{
+    background-color: gray;
+    cursor: not-allowed;
+  }
+.themeContener{
+    position: absolute;
+    top: 2%;
+    right: 2%;
+}
+.errorConteiner{
+    position: absolute;
+    top: 1%;
+    left: 50%;
+    transform: translate(-50%);
+
+}
+.errorConteiner h4{
+    color: tomato;
+    font-size: 30px;
 }

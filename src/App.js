@@ -6,7 +6,6 @@ import { ThemeProvider } from "./bgContext/BgContext";
 
 const App = () => {
   const [value, setValue] = useState([]);
-
   return (
     <Router>
       <div className="App">

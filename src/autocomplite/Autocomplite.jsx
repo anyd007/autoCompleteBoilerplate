@@ -10,9 +10,8 @@ const [dataFromAPI, setDataFromAPI] = useState([]) //pobieranie api
 const [inputValue, setInpuntValue] = useState('') //pobieranie danych z inputów
 const [replenishment, setReplenishment] = useState([])
 const { theme } = useTheme() //dane z BgContext
-const [toggleBg, setToggleBg] = useState(true) //do weryfikacji obecnego tła
+const [toggleBg, setToggleBg] = useState(false) //do weryfikacji obecnego tła
 const [error, setError] = useState(false)
-
 useEffect(()=>{
     const handleDataFromAPI = async() =>{
         await axios
@@ -66,7 +65,7 @@ useEffect(()=>{
         const change =() =>{
             setToggleBg(current => !current);
         }
-        
+    
     return(
         <div className="mainContener" style={toggleBg ? theme.light : theme.dark}>
             <div className="titleContener">
@@ -75,7 +74,10 @@ useEffect(()=>{
             {error && <div className="errorConteiner">
                         <h4>BRAK WYSZUKAŃ W BAZIE DANYCH</h4>
                     </div>}
-            <button onClick={change}>zmien</button>
+            <div className="themeContener">
+            <button className="themeBtn btn" name="theme" onClick={change} >ZMIEŃ MOTYW</button>
+            </div>
+            <div className="inputContainer">
             <label htmlFor="apiText">SPRAWDZIMY CZY PASUJE...</label><br />
             <input 
             type="text" 
@@ -83,8 +85,9 @@ useEffect(()=>{
             value={inputValue}
             onChange={e=>handleChangeInput(e.target.value)}
             />
-            <button disabled={inputValue===''} 
-            onClick={()=>handleViewDetals()} className="btn" type="button">SPRAWDŹ</button>
+            </div>
+           <div><button disabled={inputValue===''} 
+            onClick={()=>handleViewDetals()} className="btn" type="button">SPRAWDŹ</button></div>
             {replenishment && replenishment.map((el)=>
                 <div onClick={()=>handleSetValue(el.name)} className="replenishment" key={el.id}>{el.name}</div>
             )}
