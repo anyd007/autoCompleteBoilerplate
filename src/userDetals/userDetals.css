@@ -1,0 +1,34 @@
+.userDetalsContener{
+    height: 100vh;
+    text-align: center;
+}
+.error{
+    height: 100vh;
+    text-align: center;
+}
+.error h2{
+    width: 90%;
+    position: absolute;
+    top: 40%;  
+    left: 50%; 
+    transform: translate(-50%, -60%);
+    margin: 0%;
+    font-size: 70px;
+}
+.errorBtn{
+    position: absolute;
+    top: 60%;
+    transform: translate(-40%);
+    font-size: 30px;
+    padding: 10px;
+}
+.titleContener h2{
+    font-size: 45px;
+}
+table{
+    margin: 0 auto;
+}
+td{
+    font-size: 25px;
+}
+
