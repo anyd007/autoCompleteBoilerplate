@@ -12,6 +12,7 @@ const [replenishment, setReplenishment] = useState([])
 const { theme } = useTheme() //dane z BgContext
 const [toggleBg, setToggleBg] = useState(false) //do weryfikacji obecnego tła
 const [error, setError] = useState(false)
+const [loading, setLoading] = useState(false)
 useEffect(()=>{
     const handleDataFromAPI = async() =>{
         await axios
@@ -20,6 +21,7 @@ useEffect(()=>{
         .then(data=>setDataFromAPI(data))
         .catch((err) => {
             console.log(err.message);
+            setError("WYSTĄPIŁ BŁĄD SPRÓBUJ PÓŹNIEJ...")
           });
     }   
     handleDataFromAPI()
@@ -51,8 +53,10 @@ useEffect(()=>{
     }
     const history = useNavigate()
      const handleViewDetals = () =>{
+         setLoading(true)
          if(filterValue.length===0){
-             setError(true)
+             setError("BRAK WYSZUKAŃ W DOSTĘPNEJ BAZIE DANYCH")
+             setLoading(false)
          }
          else{
         setValue(filterValue) //przekaznie danych do App po zaznaczeniu podpowiedzi
@@ -72,7 +76,10 @@ useEffect(()=>{
             <h1>AUTOWYSZUKIWANIE</h1>
             </div>
             {error && <div className="errorConteiner">
-                        <h4>BRAK WYSZUKAŃ W BAZIE DANYCH</h4>
+                        <h4>{error}</h4>
+                    </div>}
+            {loading && <div className="loadingConteiner">
+                        <h4>WCZYTUJĘ...</h4>
                     </div>}
             <div className="themeContener">
             <button className="themeBtn btn" name="theme" onClick={change} >ZMIEŃ MOTYW</button>

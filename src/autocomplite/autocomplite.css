@@ -12,7 +12,7 @@ html, body {
     padding: 4%;
     animation: fadeIn linear 2s;
 }
-.inputContainer{
+.inputContainer, table{
     animation: fadeIn linear 2s;
 }
 @keyframes fadeIn {
@@ -75,6 +75,7 @@ button:hover:disabled{
     right: 2%;
 }
 .errorConteiner{
+    width: 90%;
     position: absolute;
     top: 1%;
     left: 50%;
@@ -82,6 +83,17 @@ button:hover:disabled{
 
 }
 .errorConteiner h4{
+    color: tomato;
+    font-size: 30px;
+}
+.loadingConteiner{
+    width: 90%;
+    position: absolute;
+    top: 19%;
+    left: 50%;
+    transform: translate(-50%);
+}
+.loadingConteiner h4{
     color: tomato;
     font-size: 30px;
 }
