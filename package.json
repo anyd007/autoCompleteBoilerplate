@@ -1,12 +1,13 @@
 {
   "name": "runner",
-  "version": " 1.0.2",
+  "version": "1.0.2",
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-redux": "^7.2.1",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "2.1.5",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
@@ -25,5 +26,17 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/anyd007/autoCompleteBoilerplate.git"
+  },
+  "author": "Andrzej Gębala <andrzej.gebala35@gmail.com>",
+  "license": "MIT",
+  "description": "PROJEKT AUTOUZUPEŁNIANIA\r 1.\tStworzony komponent „autocomplite”\r 2.\tW komponencie pobrałem API przy użyciu AXIOS.\r 3.\tPo poraniu API, jest porównywane z danymi wpisanymi przez użytkownika \r 4.\tPo kliknięciu na podpowiedź podstawia się jako wartość inputa\r 5.\tDodałem komponent userDetals, w którym pojawiają się szczegółowe dane dotyczące użytkownika",
+  "bugs": {
+    "url": "https://github.com/anyd007/autoCompleteBoilerplate/issues"
+  },
+  "homepage": "https://github.com/anyd007/autoCompleteBoilerplate#readme"
 }

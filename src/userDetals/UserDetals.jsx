@@ -19,7 +19,7 @@ const UserDetals = ({value}) =>{
     const change=()=> {
         setToggleBg(current => !current)
     }
-    console.log(value);
+   
     return(
     <>
         {error && <div style={theme.dark} className="error">
