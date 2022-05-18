@@ -12,6 +12,7 @@ const UserDetals = ({value}) =>{
     useEffect(()=>{
         if(value.length !==1){
         setError(true)
+        document.querySelector(".userDetalsContener").style.display = "none"
         }
         },[value])
         
@@ -22,7 +23,7 @@ const UserDetals = ({value}) =>{
     return(
     <>
         {error && <div style={theme.dark} className="error">
-            <h2>BAZA JEST OBECNIE PUSTA..<br />WRÓĆ DO WYSZUKIWANIA</h2>
+            <h2>BAZA JEST OBECNIE PUSTA..<br />WRÓĆ DO WYSZUKIWANIA<br />poza tym, u mnie działa :)</h2>
             <button onClick={()=>history("/")} className="btn errorBtn" type="button">ZAMKNIJ</button>
             </div>}
         {value && <div className="userDetalsContener" style={toggleBg ? theme.light : theme.dark}>
