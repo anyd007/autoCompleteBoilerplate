@@ -15,58 +15,59 @@ const UserDetals = ({value}) =>{
         document.querySelector(".userDetalsContener").style.display = "none"
         }
         },[value])
-        
+    const [buttonText, setButtonText] = useState('LIGHT')
     const change=()=> {
         setToggleBg(current => !current)
+        toggleBg ? setButtonText("LIGHT") : setButtonText("DARK")
     }
    
     return(
     <>
         {error && <div style={theme.dark} className="error">
-            <h2>BAZA JEST OBECNIE PUSTA..<br />WRÓĆ DO WYSZUKIWANIA<br />poza tym, u mnie działa :)</h2>
-            <button onClick={()=>history("/")} className="btn errorBtn" type="button">ZAMKNIJ</button>
+            <h2>DATABASE ITS EAMPTY..<br />GET BACK TO SEARCHING<br />BTW..its works for me :)</h2>
+            <button onClick={()=>history("/")} className="btn errorBtn" type="button">CLOSE</button>
             </div>}
         {value && <div className="userDetalsContener" style={toggleBg ? theme.light : theme.dark}>
             <div className="themeContener">
-            <button onClick={change} className="btn">ZMIEŃ MOTYW</button>
+            <button onClick={change} className="btn">{buttonText}</button>
             </div>
             <div className="titleContener">
-            {value.map(el=>(<h2 key={el.id}>DANE UŻYTKOWNIKA: {el.name.toUpperCase()}</h2>))}
+            {value.map(el=>(<h2 key={el.id}>USER DATA: {el.name.toUpperCase()}</h2>))}
             </div>
          {value.map(el=>(
          <table key={el.id}>
                <thead>
                    <tr>
-                     <td>ADRES ZAMIESZKANIA</td>
+                     <td>ADDRESS</td>
                    </tr>
                </thead>
                <tbody>
                   <tr key={el.id}>
-                    <td>MIASTO: {el.address.city}, ULICA: {el.address.street}, NR: {el.address.suite}, KOD POCZOTOWY: {el.address.zipcode}</td>
+                    <td>CITY: {el.address.city}, STREET: {el.address.street}, NO: {el.address.suite}, ZIP CODE: {el.address.zipcode}</td>
                    </tr>
                </tbody>
                <thead>
                    <tr>
-                     <td>DANE KONTAKTOWE</td>
+                     <td>CONTACT DETAILS</td>
                    </tr>
                </thead>
                <tbody>
                   <tr key={el.id}>
-                    <td>NICK: {el.username},TELEFON: {el.phone}, MAIL: {el.email}, STRONA: {el.website}</td>
+                    <td>NICK: {el.username},PHONE NUMBER: {el.phone}, MAIL: {el.email}, WEBSIDE: {el.website}</td>
                    </tr>
                </tbody>
                <thead>
                    <tr>
-                     <td>PRACA</td>
+                     <td>JOB</td>
                    </tr>
                </thead>
                <tbody>
                   <tr key={el.id}>
-                    <td>NAZWA FIRMY: {el.company.name},  BRANŻA: {el.company.bs}</td>
+                    <td>COMPANY NAME: {el.company.name},  INDUSTRY: {el.company.bs}</td>
                    </tr>
                </tbody>
            </table>))}
-        <button onClick={()=>history("/")} className="btn" type="button">ZAMKNIJ</button>
+        <button onClick={()=>history("/")} className="btn" type="button">CLOSE</button>
         </div>}
     </>
     )

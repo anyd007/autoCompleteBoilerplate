@@ -21,7 +21,7 @@ useEffect(()=>{
         .then(data=>setDataFromAPI(data))
         .catch((err) => {
             console.log(err.message);
-            setError("WYSTĄPIŁ BŁĄD SPRÓBUJ PÓŹNIEJ...")
+            setError("OH NO, WE HAVE AN ERROR, TRY LATER...")
           });
     }   
     handleDataFromAPI()
@@ -55,7 +55,7 @@ useEffect(()=>{
      const handleViewDetals = () =>{
          setLoading(true)
          if(filterValue.length===0){
-             setError("BRAK WYSZUKAŃ W DOSTĘPNEJ BAZIE DANYCH")
+             setError("THERE IS NO DATA FROM THIS DATABASE...TRY ONE MORE TIME")
              setLoading(false)
          }
          else{
@@ -66,26 +66,28 @@ useEffect(()=>{
         setError(false)
          }
         }
+        const [buttonText, setButtonText] = useState('LIGHT')
         const change =() =>{
             setToggleBg(current => !current);
+            toggleBg ? setButtonText("LIGHT") : setButtonText("DARK")
         }
     
     return(
         <div className="mainContener" style={toggleBg ? theme.light : theme.dark}>
             <div className="titleContener">
-            <h1>AUTOWYSZUKIWANIE</h1>
+            <h1>SEARCH SUGGESTIONS</h1>
             </div>
             {error && <div className="errorConteiner">
                         <h4>{error}</h4>
                     </div>}
             {loading && <div className="loadingConteiner">
-                        <h4>WCZYTUJĘ...</h4>
+                        <h4>LOADING...</h4>
                     </div>}
             <div className="themeContener">
-            <button className="themeBtn btn" name="theme" onClick={change} >ZMIEŃ MOTYW</button>
+            <button className="themeBtn btn" name="theme" onClick={change} >{buttonText}</button>
             </div>
             <div className="inputContainer">
-            <label htmlFor="apiText">SPRAWDZIMY CZY PASUJE...</label><br />
+            <label htmlFor="apiText">LETS CHECK IS IT RIGHT...</label><br />
             <input 
             type="text" 
             name="apiText" 
