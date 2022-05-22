@@ -96,7 +96,7 @@ useEffect(()=>{
             />
             </div>
            <div><button disabled={inputValue===''} 
-            onClick={()=>handleViewDetals()} className="btn" type="button">SPRAWDŹ</button></div>
+            onClick={()=>handleViewDetals()} className="btn" type="button">CHECK</button></div>
             {replenishment && replenishment.map((el)=>
                 <div onClick={()=>handleSetValue(el.name)} className="replenishment" key={el.id}>{el.name}</div>
             )}
