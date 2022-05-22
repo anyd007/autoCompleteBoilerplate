@@ -75,7 +75,7 @@ useEffect(()=>{
     return(
         <div className="mainContener" style={toggleBg ? theme.light : theme.dark}>
             <div className="titleContener">
-            <h1>SEARCH SUGGESTIONS</h1>
+            <h1>AUTOCOMPLITE SEARCH</h1>
             </div>
             {error && <div className="errorConteiner">
                         <h4>{error}</h4>
